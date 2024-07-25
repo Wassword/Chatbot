@@ -1,49 +1,49 @@
 package org.example;
+
 import java.util.Scanner;
 
 public class ChatBot {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in); // Create a Scanner object to read user input
+
+    static String userName;
 
     public static void main(String[] args) {
-        // Create a Scanner object to read user input
 
-        //calling methods to perform chatbot functions
+        // calling methods to perform chatbot functions
         greetUser(scanner);
         repeatName(scanner);
         guessAge(scanner);
         countToNumber(scanner);
         testProgrammingKnowledge(scanner);
-
-
+        tellUserStory();
     }
-// Method to greet the user and ask for their name
 
+    // Method to greet the user and ask for their name
     public static void greetUser(Scanner scanner) {
         System.out.println("Hello! I'm your Chat Bot friend!");
         System.out.println("What's your name?");
+        userName = scanner.nextLine();  // Get the user's name here
     }
 
     public static void repeatName(Scanner scanner) {
-        String name = scanner.nextLine();
-        System.out.println("Nice to meet you, " + name + "!");
+        System.out.println("Nice to meet you, " + userName + "!");
     }
 
     public static void guessAge(Scanner scanner) {
         System.out.println("Let me guess your age?");
 
-        //guessing age using age ranges
-
+        // guessing age using age ranges
         int lowerBound = 0;
         int upperBound = 100;
 
         int guess;
         String response;
 
-        //Qs to narrow down the age range
+        // Qs to narrow down the age range
         System.out.println("Did you graduate high school before 2005? (yes/no)");
         response = scanner.nextLine();
         if (response.equals("yes")) {
-            upperBound = 35; //assuming person is 18 in 2005
+            upperBound = 35; // assuming person is 18 in 2005
             lowerBound = 18;
         }
         System.out.println("Do you know what a floppy disc is? (yes/no)");
@@ -80,7 +80,6 @@ public class ChatBot {
             System.out.println(i);
         }
         scanner.nextLine();
-
     }
 
     public static void testProgrammingKnowledge(Scanner scanner) {
@@ -102,6 +101,15 @@ public class ChatBot {
             }
         }
     }
+
+    public static void tellUserStory() {
+        System.out.println("Here's a little story about you, " + userName + "!");
+        System.out.println("Once upon a time, there was a brilliant individual named " + userName + ".");
+        System.out.println(userName + " was known for their incredible curiosity and love for technology.");
+        System.out.println("They embarked on a journey to create amazing applications and solve complex problems.");
+        System.out.println("With each passing day, " + userName + " learned new skills and became more proficient in programming.");
+        System.out.println("Their dedication and hard work paid off, and they became a respected developer in the tech community.");
+        System.out.println("And so, " + userName + "'s story continues as they explore new horizons and achieve great things.");
+        System.out.println("The end.");
+    }
 }
-
-
